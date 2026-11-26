@@ -1,0 +1,359 @@
+{
+ "start": {
+  "board": {
+   "page": 0,
+   "top": 0,
+   "lines": [],
+   "saved": {}
+  },
+  "stage": {
+   "video": {
+    "src": null,
+    "playing": false,
+    "position": 0.0,
+    "quiet": false
+   },
+   "rows": [
+    [
+     {
+      "source": "board"
+     }
+    ]
+   ],
+   "deck": null,
+   "slide": 1,
+   "ink": {},
+   "marks": {},
+   "screen": {
+    "on": false,
+    "tabs": [],
+    "active": 0,
+    "failed": false
+   }
+  },
+  "floor": {
+   "mode": "hands",
+   "prompt": "",
+   "hands": [],
+   "speaker": null,
+   "paused": false
+  },
+  "polls": []
+ },
+ "events": [
+  {
+   "type": "plan",
+   "segment": "layout",
+   "title": "Room on the board",
+   "seq": 1
+  },
+  {
+   "type": "board.clear",
+   "seq": 2
+  },
+  {
+   "type": "board.write",
+   "id": "_title",
+   "kind": "title",
+   "content": "Two problems on one board",
+   "reveal_ms": 400,
+   "seq": 3
+  },
+  {
+   "type": "say",
+   "id": "0000000000",
+   "text": "Here is the first problem.",
+   "source": "script",
+   "pos": [
+    "layout",
+    1
+   ],
+   "dur_ms": 100,
+   "seq": 4
+  },
+  {
+   "type": "board.write",
+   "id": "p1",
+   "kind": "math",
+   "content": "\\frac{d}{dx}\\,(3x+1)^5",
+   "reveal_ms": 500,
+   "col": 0,
+   "beside": "",
+   "space": false,
+   "seq": 5
+  },
+  {
+   "type": "board.write",
+   "id": "a1",
+   "kind": "math",
+   "content": "= 5(3x+1)^4 \\cdot 3",
+   "reveal_ms": 500,
+   "col": 0,
+   "beside": "",
+   "space": false,
+   "seq": 6
+  },
+  {
+   "type": "board.write",
+   "id": "b1",
+   "kind": "math",
+   "content": "= 15(3x+1)^4",
+   "reveal_ms": 500,
+   "col": 0,
+   "beside": "",
+   "space": false,
+   "seq": 7
+  },
+  {
+   "type": "heard",
+   "id": "0000000000",
+   "seq": 8
+  },
+  {
+   "type": "say",
+   "id": "0000000000",
+   "text": "A gap sets the second problem apart, and the first one stays up.",
+   "source": "script",
+   "pos": [
+    "layout",
+    5
+   ],
+   "dur_ms": 100,
+   "seq": 9
+  },
+  {
+   "type": "board.write",
+   "id": "p2",
+   "kind": "math",
+   "content": "\\frac{d}{dx}\\,\\sin(x^2)",
+   "reveal_ms": 500,
+   "col": 0,
+   "beside": "",
+   "space": true,
+   "seq": 10
+  },
+  {
+   "type": "board.write",
+   "id": "a2",
+   "kind": "math",
+   "content": "= \\cos(x^2) \\cdot 2x",
+   "reveal_ms": 500,
+   "col": 0,
+   "beside": "",
+   "space": false,
+   "seq": 11
+  },
+  {
+   "type": "heard",
+   "id": "0000000000",
+   "seq": 12
+  },
+  {
+   "type": "say",
+   "id": "0000000000",
+   "text": "There is room beside the first problem, so notes can go there.",
+   "source": "script",
+   "pos": [
+    "layout",
+    8
+   ],
+   "dur_ms": 100,
+   "seq": 13
+  },
+  {
+   "type": "board.write",
+   "id": "n1",
+   "kind": "text",
+   "content": "outside: something to the fifth",
+   "reveal_ms": 500,
+   "col": 1,
+   "beside": "p1",
+   "space": false,
+   "seq": 14
+  },
+  {
+   "type": "board.write",
+   "id": "n2",
+   "kind": "text",
+   "content": "inside: 3x + 1",
+   "reveal_ms": 500,
+   "col": 1,
+   "beside": "",
+   "space": false,
+   "seq": 15
+  },
+  {
+   "type": "heard",
+   "id": "0000000000",
+   "seq": 16
+  },
+  {
+   "type": "say",
+   "id": "0000000000",
+   "text": "And writing carries on down the first column.",
+   "source": "script",
+   "pos": [
+    "layout",
+    11
+   ],
+   "dur_ms": 100,
+   "seq": 17
+  },
+  {
+   "type": "board.write",
+   "id": "c",
+   "kind": "text",
+   "content": "Both use the chain rule.",
+   "reveal_ms": 500,
+   "col": 0,
+   "beside": "",
+   "space": false,
+   "seq": 18
+  },
+  {
+   "type": "heard",
+   "id": "0000000000",
+   "seq": 19
+  },
+  {
+   "type": "say",
+   "id": "0000000000",
+   "text": "That is the end of the test.",
+   "source": "script",
+   "pos": [
+    "layout",
+    13
+   ],
+   "dur_ms": 100,
+   "seq": 20
+  },
+  {
+   "type": "heard",
+   "id": "0000000000",
+   "seq": 21
+  }
+ ],
+ "state": {
+  "board": {
+   "page": 1,
+   "top": 1,
+   "lines": [
+    {
+     "id": "_title",
+     "kind": "title",
+     "content": "Two problems on one board",
+     "marks": {},
+     "col": 0,
+     "beside": "",
+     "space": false
+    },
+    {
+     "id": "p1",
+     "kind": "math",
+     "content": "\\frac{d}{dx}\\,(3x+1)^5",
+     "marks": {},
+     "col": 0,
+     "beside": "",
+     "space": false
+    },
+    {
+     "id": "a1",
+     "kind": "math",
+     "content": "= 5(3x+1)^4 \\cdot 3",
+     "marks": {},
+     "col": 0,
+     "beside": "",
+     "space": false
+    },
+    {
+     "id": "b1",
+     "kind": "math",
+     "content": "= 15(3x+1)^4",
+     "marks": {},
+     "col": 0,
+     "beside": "",
+     "space": false
+    },
+    {
+     "id": "p2",
+     "kind": "math",
+     "content": "\\frac{d}{dx}\\,\\sin(x^2)",
+     "marks": {},
+     "col": 0,
+     "beside": "",
+     "space": true
+    },
+    {
+     "id": "a2",
+     "kind": "math",
+     "content": "= \\cos(x^2) \\cdot 2x",
+     "marks": {},
+     "col": 0,
+     "beside": "",
+     "space": false
+    },
+    {
+     "id": "n1",
+     "kind": "text",
+     "content": "outside: something to the fifth",
+     "marks": {},
+     "col": 1,
+     "beside": "p1",
+     "space": false
+    },
+    {
+     "id": "n2",
+     "kind": "text",
+     "content": "inside: 3x + 1",
+     "marks": {},
+     "col": 1,
+     "beside": "",
+     "space": false
+    },
+    {
+     "id": "c",
+     "kind": "text",
+     "content": "Both use the chain rule.",
+     "marks": {},
+     "col": 0,
+     "beside": "",
+     "space": false
+    }
+   ],
+   "saved": {}
+  },
+  "stage": {
+   "video": {
+    "src": null,
+    "playing": false,
+    "position": 0.0,
+    "quiet": false
+   },
+   "rows": [
+    [
+     {
+      "source": "board"
+     }
+    ]
+   ],
+   "deck": null,
+   "slide": 1,
+   "ink": {},
+   "marks": {},
+   "screen": {
+    "on": false,
+    "tabs": [],
+    "active": 0,
+    "failed": false
+   }
+  },
+  "floor": {
+   "mode": "hands",
+   "prompt": "",
+   "hands": [],
+   "speaker": null,
+   "paused": false
+  },
+  "polls": []
+ }
+}

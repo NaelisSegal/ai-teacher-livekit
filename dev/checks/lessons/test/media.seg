@@ -1,0 +1,34 @@
+---
+id: media
+course: test
+title: Pictures and video
+cover: optional
+source: A short test of pictures on the board and slides, and of video. Not a lesson.
+---
+title: Pictures and video
+say: Here is a picture from lesson prep, on the board.
+image card: test-card.svg
+say: It can be marked like any other line.
+mark: box card
+say: A picture made during the class keeps its place until it is ready.
+generate made: a red circle on a white background
+say: Now a video, beside the board.
+video: test-clip.mp4
+show: video | board
+say: The class watches it for a few seconds.
+play: for 4
+say: It can be played from a chosen moment, more quietly, while the lecturer talks over it.
+play: at 6
+say: This sentence is said while the video plays.
+stop:
+say: The video alone fills the stage.
+show: video
+say: A slide can hold a video too, and the class watches that.
+slides: test/media
+show: slides
+play: at 1 for 3
+say: And a picture can be put in an area of a slide.
+slide: next
+image onslide @work: test-card.svg
+say: Back to the board. That is the end of the test.
+show: board

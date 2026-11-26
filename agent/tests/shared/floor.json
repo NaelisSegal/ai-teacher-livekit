@@ -1,0 +1,494 @@
+{
+ "start": {
+  "board": {
+   "page": 0,
+   "top": 0,
+   "lines": [],
+   "saved": {}
+  },
+  "stage": {
+   "video": {
+    "src": null,
+    "playing": false,
+    "position": 0.0,
+    "quiet": false
+   },
+   "rows": [
+    [
+     {
+      "source": "board"
+     }
+    ]
+   ],
+   "deck": null,
+   "slide": 1,
+   "ink": {},
+   "marks": {},
+   "screen": {
+    "on": false,
+    "tabs": [],
+    "active": 0,
+    "failed": false
+   }
+  },
+  "floor": {
+   "mode": "hands",
+   "prompt": "",
+   "hands": [],
+   "speaker": null,
+   "paused": false
+  },
+  "polls": []
+ },
+ "events": [
+  {
+   "type": "plan",
+   "segment": "floor",
+   "title": "Who may speak",
+   "seq": 1
+  },
+  {
+   "type": "board.clear",
+   "seq": 2
+  },
+  {
+   "type": "board.write",
+   "id": "_title",
+   "kind": "title",
+   "content": "Who may speak",
+   "reveal_ms": 400,
+   "seq": 3
+  },
+  {
+   "type": "say",
+   "id": "0000000000",
+   "text": "This class starts with hands.",
+   "source": "script",
+   "pos": [
+    "floor",
+    1
+   ],
+   "dur_ms": 100,
+   "seq": 4
+  },
+  {
+   "type": "heard",
+   "id": "0000000000",
+   "seq": 5
+  },
+  {
+   "type": "say",
+   "id": "0000000000",
+   "text": "Raise a hand if you want to speak.",
+   "source": "script",
+   "pos": [
+    "floor",
+    1
+   ],
+   "dur_ms": 100,
+   "seq": 6
+  },
+  {
+   "type": "heard",
+   "id": "0000000000",
+   "seq": 7
+  },
+  {
+   "type": "say",
+   "id": "0000000000",
+   "text": "Here is some talking to fill the time, one sentence after another.",
+   "source": "script",
+   "pos": [
+    "floor",
+    2
+   ],
+   "dur_ms": 100,
+   "seq": 8
+  },
+  {
+   "type": "heard",
+   "id": "0000000000",
+   "seq": 9
+  },
+  {
+   "type": "say",
+   "id": "0000000000",
+   "text": "And another sentence, so that there is something to wait behind.",
+   "source": "script",
+   "pos": [
+    "floor",
+    3
+   ],
+   "dur_ms": 100,
+   "seq": 10
+  },
+  {
+   "type": "heard",
+   "id": "0000000000",
+   "seq": 11
+  },
+  {
+   "type": "say",
+   "id": "0000000000",
+   "text": "The lecturer keeps going until it gives someone the floor.",
+   "source": "script",
+   "pos": [
+    "floor",
+    4
+   ],
+   "dur_ms": 100,
+   "seq": 12
+  },
+  {
+   "type": "heard",
+   "id": "0000000000",
+   "seq": 13
+  },
+  {
+   "type": "say",
+   "id": "0000000000",
+   "text": "Here is one more sentence of the lesson.",
+   "source": "script",
+   "pos": [
+    "floor",
+    5
+   ],
+   "dur_ms": 100,
+   "seq": 14
+  },
+  {
+   "type": "heard",
+   "id": "0000000000",
+   "seq": 15
+  },
+  {
+   "type": "say",
+   "id": "0000000000",
+   "text": "And one more after that.",
+   "source": "script",
+   "pos": [
+    "floor",
+    6
+   ],
+   "dur_ms": 100,
+   "seq": 16
+  },
+  {
+   "type": "heard",
+   "id": "0000000000",
+   "seq": 17
+  },
+  {
+   "type": "say",
+   "id": "0000000000",
+   "text": "Here is a poll.",
+   "source": "script",
+   "pos": [
+    "floor",
+    7
+   ],
+   "dur_ms": 100,
+   "seq": 18
+  },
+  {
+   "type": "heard",
+   "id": "0000000000",
+   "seq": 19
+  },
+  {
+   "type": "say",
+   "id": "0000000000",
+   "text": "It is in the chat.",
+   "source": "script",
+   "pos": [
+    "floor",
+    7
+   ],
+   "dur_ms": 100,
+   "seq": 20
+  },
+  {
+   "type": "poll.open",
+   "id": "00000000",
+   "question": "Which do you find easier?",
+   "options": [
+    "Working on paper",
+    "Working in your head",
+    "About the same"
+   ],
+   "seq": 21
+  },
+  {
+   "type": "heard",
+   "id": "0000000000",
+   "seq": 22
+  },
+  {
+   "type": "say",
+   "id": "0000000000",
+   "text": "Give a thumbs up if you can hear this.",
+   "source": "script",
+   "pos": [
+    "floor",
+    9
+   ],
+   "dur_ms": 100,
+   "seq": 23
+  },
+  {
+   "type": "heard",
+   "id": "0000000000",
+   "seq": 24
+  },
+  {
+   "type": "say",
+   "id": "0000000000",
+   "text": "Now a short task.",
+   "source": "script",
+   "pos": [
+    "floor",
+    10
+   ],
+   "dur_ms": 100,
+   "seq": 25
+  },
+  {
+   "type": "heard",
+   "id": "0000000000",
+   "seq": 26
+  },
+  {
+   "type": "say",
+   "id": "0000000000",
+   "text": "Press done when you have finished it.",
+   "source": "script",
+   "pos": [
+    "floor",
+    10
+   ],
+   "dur_ms": 100,
+   "seq": 27
+  },
+  {
+   "type": "heard",
+   "id": "0000000000",
+   "seq": 28
+  },
+  {
+   "type": "pause",
+   "seconds": 0.3,
+   "text": "Press done when you have finished.",
+   "seq": 29
+  },
+  {
+   "type": "pause.end",
+   "seq": 30
+  },
+  {
+   "type": "say",
+   "id": "0000000000",
+   "text": "Now the mics are open for a discussion.",
+   "source": "script",
+   "pos": [
+    "floor",
+    13
+   ],
+   "dur_ms": 100,
+   "seq": 31
+  },
+  {
+   "type": "poll.close",
+   "id": "00000000",
+   "counts": [
+    0,
+    0,
+    0
+   ],
+   "seq": 32
+  },
+  {
+   "type": "heard",
+   "id": "0000000000",
+   "seq": 33
+  },
+  {
+   "type": "say",
+   "id": "0000000000",
+   "text": "Unmute if you want to say something.",
+   "source": "script",
+   "pos": [
+    "floor",
+    13
+   ],
+   "dur_ms": 100,
+   "seq": 34
+  },
+  {
+   "type": "heard",
+   "id": "0000000000",
+   "seq": 35
+  },
+  {
+   "type": "pause",
+   "seconds": 0.1,
+   "text": "Unmute and say what you think.",
+   "seq": 36
+  },
+  {
+   "type": "pause.end",
+   "seq": 37
+  },
+  {
+   "type": "say",
+   "id": "0000000000",
+   "text": "Thank you. Hands again now.",
+   "source": "script",
+   "pos": [
+    "floor",
+    16
+   ],
+   "dur_ms": 100,
+   "seq": 38
+  },
+  {
+   "type": "heard",
+   "id": "0000000000",
+   "seq": 39
+  },
+  {
+   "type": "say",
+   "id": "0000000000",
+   "text": "This sentence is here for the helper to talk over.",
+   "source": "script",
+   "pos": [
+    "floor",
+    18
+   ],
+   "dur_ms": 100,
+   "seq": 40
+  },
+  {
+   "type": "heard",
+   "id": "0000000000",
+   "seq": 41
+  },
+  {
+   "type": "say",
+   "id": "0000000000",
+   "text": "And this one is here in case the helper needs a bit longer.",
+   "source": "script",
+   "pos": [
+    "floor",
+    19
+   ],
+   "dur_ms": 100,
+   "seq": 42
+  },
+  {
+   "type": "heard",
+   "id": "0000000000",
+   "seq": 43
+  },
+  {
+   "type": "say",
+   "id": "0000000000",
+   "text": "The helper may also share a screen at any time.",
+   "source": "script",
+   "pos": [
+    "floor",
+    20
+   ],
+   "dur_ms": 100,
+   "seq": 44
+  },
+  {
+   "type": "heard",
+   "id": "0000000000",
+   "seq": 45
+  },
+  {
+   "type": "say",
+   "id": "0000000000",
+   "text": "That is the end of the test.",
+   "source": "script",
+   "pos": [
+    "floor",
+    21
+   ],
+   "dur_ms": 100,
+   "seq": 46
+  },
+  {
+   "type": "heard",
+   "id": "0000000000",
+   "seq": 47
+  }
+ ],
+ "state": {
+  "board": {
+   "page": 1,
+   "top": 1,
+   "lines": [
+    {
+     "id": "_title",
+     "kind": "title",
+     "content": "Who may speak",
+     "marks": {},
+     "col": 0,
+     "beside": "",
+     "space": false
+    }
+   ],
+   "saved": {}
+  },
+  "stage": {
+   "video": {
+    "src": null,
+    "playing": false,
+    "position": 0.0,
+    "quiet": false
+   },
+   "rows": [
+    [
+     {
+      "source": "board"
+     }
+    ]
+   ],
+   "deck": null,
+   "slide": 1,
+   "ink": {},
+   "marks": {},
+   "screen": {
+    "on": false,
+    "tabs": [],
+    "active": 0,
+    "failed": false
+   }
+  },
+  "floor": {
+   "mode": "hands",
+   "prompt": "",
+   "hands": [],
+   "speaker": null,
+   "paused": false
+  },
+  "polls": [
+   {
+    "id": "00000000",
+    "question": "Which do you find easier?",
+    "options": [
+     "Working on paper",
+     "Working in your head",
+     "About the same"
+    ],
+    "counts": [
+     0,
+     0,
+     0
+    ],
+    "open": false
+   }
+  ]
+ }
+}

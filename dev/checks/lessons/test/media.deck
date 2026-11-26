@@ -1,0 +1,13 @@
+---
+id: media
+title: Pictures and video
+---
+# Slides for the pictures and video check (media.seg). Not lesson content.
+
+slide: A slide that holds a video
+video: test-clip.mp4
+
+slide: A slide with a picture and an empty area
+> The lecturer puts a picture in the area on the right.
+image: test-card.svg
+area work: 0.56 0.22 0.4 0.5

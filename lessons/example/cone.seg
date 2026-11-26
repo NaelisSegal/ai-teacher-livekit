@@ -1,0 +1,76 @@
+---
+id: cone
+course: example
+title: Why a cone is a third
+cover: must
+minutes: 15
+source: An example lesson for this repo. The maths is standard; problem types follow Illustrative Mathematics Geometry, Unit 5 (Solid Geometry).
+---
+
+# An example lesson: short, so it is quick to try. Read from its script, or taught
+# live (with a writer model set), when the notes beside it (cone.notes.md) guide the
+# teacher. The format of every line is in agent/src/lecturer/script/steps.py.
+
+part: 1 | Volume, and the can | must | 4
+
+title: Why a cone is a third
+show: board
+say: Hello, and welcome. Today is one short idea: how much a cone holds, and why.
+say: If you are not sure about something at any point, ask in the chat. That always helps.
+say: First, a can. A can is the same all the way up, like a stack of identical coins.
+say: So its volume is the area of the bottom, times the height.
+write cyl: V_{\text{cylinder}} = \pi r^2 h
+say: The bottom is a circle, and the area of a circle is pi times the radius squared. The radius, r, is the distance from the centre to the edge.
+say: Try one. A can has a radius of three centimetres and a height of ten centimetres. What is its volume? Leave pi in your answer if you like.
+note t1: A can: radius 3 cm, height 10 cm. Its volume?
+pause: 60 A can has radius 3 cm and height 10 cm. What is its volume?
+say: Three squared is nine, so the bottom is nine pi. Times the height, ten, is ninety pi, about two hundred and eighty three cubic centimetres.
+write t2: V = \pi \times 3^2 \times 10 = 90\pi \approx 282.7 \text{ cm}^3
+
+part: 2 | The cone is a third | must | 5
+
+title: The cone
+say: Now a cone that fits exactly inside that can: the same circle at the bottom, and the same height.
+say: How much of the can does it fill? Have a guess in the chat.
+pause: 20 How much of the can does the cone fill? A guess.
+say: Watch this short video. Count how many cones of water it takes to fill the cylinder.
+video: https://www.youtube.com/watch?v=vdN6a2hArMQ
+show: video | board
+play: for 76
+show: board
+say: It takes three. A cone holds exactly one third of the can with the same bottom and the same height.
+write cone: V_{\text{cone}} = \tfrac{1}{3} \pi r^2 h
+mark: box cone
+say: So for a cone, work out the can, then take a third.
+slides: example/cone
+show: slides | board
+say: The same is true of any shape that comes to a point: a pyramid is a third of the box around it.
+mark: clear
+say: The cone inside our can, radius three and height ten, is a third of ninety pi: thirty pi.
+write c1: V = \tfrac{1}{3} \times 90\pi = 30\pi \approx 94.2 \text{ cm}^3
+
+part: 3 | A problem | must | 5
+
+title: A problem
+show: board
+say: Here is a problem to use it on.
+say: A paper cup is a cone, with a radius of three centimetres and a height of eight. It is full of water, and the water is poured into a glass: a cylinder, also of radius three. How high does the water come in the glass?
+note p0: A cone cup (radius 3 cm, height 8 cm), full, is poured into a cylinder glass (radius 3 cm). How high is the water?
+say: Everyone, work it out on paper first. The water's volume does not change when it is poured.
+pause: 120 A cone cup (radius 3, height 8) is poured into a cylinder glass (radius 3). How high is the water?
+say: Let's go through it. First, the water in the cup: a third of pi times three squared times eight.
+write p1: V = \tfrac{1}{3}\pi \times 3^2 \times 8 = 24\pi
+say: Nine times eight is seventy two, and a third of that is twenty four. So twenty four pi.
+say: In the glass, the same water is a cylinder of radius three and an unknown height h: nine pi times h.
+write p2: 9\pi h = 24\pi \quad\Rightarrow\quad h = \tfrac{24}{9} \approx 2.67 \text{ cm}
+say: So h is twenty four over nine, about two point seven centimetres: a third of the cup's height, because the glass has the same radius.
+say: That is the third again, seen another way.
+
+part: 4 | To remember | must | 1
+
+title: To remember
+write r1: V_{\text{cylinder}} = \pi r^2 h \qquad V_{\text{cone}} = \tfrac{1}{3}\pi r^2 h
+say: A can is base times height. A cone is a third of that. When water is poured, its volume stays the same.
+say: Any questions? Type them in the chat.
+pause: 45 Any questions?
+say: Thank you for coming.

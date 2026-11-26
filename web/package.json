@@ -1,0 +1,38 @@
+{
+  "name": "curiosity-hall-web",
+  "version": "0.0.1",
+  "private": true,
+  "license": "AGPL-3.0-or-later",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "eslint .",
+    "test": "vitest run",
+    "format:check": "prettier --check \"**/*.{ts,tsx,md,json}\"",
+    "format:write": "prettier --write \"**/*.{ts,tsx,md,json}\""
+  },
+  "dependencies": {
+    "@livekit/components-react": "2.9.26",
+    "katex": "^0.19.1",
+    "livekit-client": "2.25.0",
+    "livekit-server-sdk": "2.20.1",
+    "next": "16.4.6",
+    "react": "19.3.1",
+    "react-dom": "19.3.1"
+  },
+  "devDependencies": {
+    "@types/katex": "^0.16.7",
+    "@types/node": "26.6.7",
+    "@types/react": "19.3.1",
+    "@types/react-dom": "19.3.0",
+    "eslint": "9.39.5",
+    "eslint-config-next": "16.4.6",
+    "prettier": "3.10.1",
+    "typescript": "6.0.3",
+    "vitest": "^5.1.1"
+  },
+  "engines": {
+    "node": ">=20.9"
+  }
+}

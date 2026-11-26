@@ -1,0 +1,53 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "curiosity-hall-lecturer"
+version = "0.0.1"
+description = "The Curiosity Hall lecturer: a LiveKit agent that teaches live classes"
+requires-python = ">=3.11, <3.15"
+license = "AGPL-3.0-or-later"
+
+dependencies = [
+    "anthropic>=2.14.0",
+    "openai>=3.59.0",
+    "aiohttp",
+    "livekit-agents~=1.8",
+    "python-dotenv",
+    # Used directly, and also brought in by livekit-agents.
+    "numpy",
+    "av",
+]
+
+[dependency-groups]
+dev = [
+    "pytest",
+    "pytest-asyncio",
+    "ruff",
+]
+
+[tool.uv]
+# Carried over from agent-starter-python: yarl 1.24.1 has no wheel for 3.11+.
+constraint-dependencies = ["yarl<1.24"]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-dir]
+"" = "src"
+
+[tool.setuptools.package-data]
+lecturer = ["teaching/prompts/*.md"]
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+asyncio_default_fixture_loop_scope = "function"
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I", "N", "B", "A", "C4", "UP", "SIM", "RUF"]
+ignore = ["E501"]

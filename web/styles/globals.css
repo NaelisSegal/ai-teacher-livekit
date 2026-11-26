@@ -1,0 +1,1322 @@
+:root {
+  --bg: #fbfbfc;
+  --panel: #ffffff;
+  --ink: #17191e;
+  --muted: #5e6573;
+  --line: #e1e4ea;
+  --accent: #2f5fd0;
+  --mark: #ffe58a;
+  --mark-ink: #17191e;
+  --f-sans: ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #111318;
+    --panel: #171a20;
+    --ink: #e7e9ee;
+    --muted: #9aa1ae;
+    --line: #272b33;
+    --accent: #8fb0ff;
+    --mark: #6b5a12;
+    --mark-ink: #fff6cf;
+    color-scheme: dark;
+  }
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font: 16px/1.5 var(--f-sans);
+}
+
+a {
+  color: var(--accent);
+}
+
+.ch-button {
+  font: inherit;
+  color: var(--ink);
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 6px 14px;
+  cursor: pointer;
+}
+
+.ch-button:disabled {
+  opacity: 0.5;
+  cursor: default;
+}
+
+.ch-button-main {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: var(--bg);
+  font-weight: 600;
+  padding: 10px 18px;
+}
+
+/* Join page and the dev index */
+
+.ch-join {
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 28px;
+  padding: 24px 16px;
+}
+
+/* A little about this session, under the join button. */
+.ch-join-info {
+  width: min(420px, 100%);
+  padding-top: 18px;
+  border-top: 1px solid var(--line);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  font-size: 15px;
+}
+
+.ch-join-info p {
+  color: var(--ink);
+}
+
+/* Plain pages: what's on, and courses. */
+.ch-doc {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 40px 16px 64px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.ch-doc h1 {
+  margin: 0;
+  font-size: 30px;
+  letter-spacing: -0.01em;
+}
+
+.ch-doc h2 {
+  margin: 18px 0 0;
+  font-size: 19px;
+}
+
+.ch-doc h3 {
+  margin: 0;
+  font-size: 17px;
+}
+
+.ch-doc p {
+  margin: 0;
+}
+
+.ch-doc section {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.ch-doc-lede {
+  font-size: 18px;
+}
+
+.ch-doc-quiet,
+.ch-doc-crumb {
+  color: var(--muted);
+}
+
+.ch-doc-note {
+  padding: 8px 12px;
+  border: 1px dashed var(--line);
+  border-radius: 8px;
+  color: var(--muted);
+  font-size: 14.5px;
+}
+
+.ch-doc-list {
+  margin: 0;
+  padding-left: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.ch-sessions {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.ch-session {
+  display: grid;
+  grid-template-columns: 110px minmax(0, 1fr) auto;
+  gap: 14px;
+  align-items: start;
+  padding: 14px 16px;
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+}
+
+.ch-session-main {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.ch-session-kind {
+  font-size: 12.5px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.ch-session[data-kind='office-hours'] .ch-session-kind {
+  color: var(--accent);
+}
+
+.ch-session-when {
+  color: var(--muted);
+}
+
+.ch-session .ch-button-main {
+  text-decoration: none;
+}
+
+@media (max-width: 560px) {
+  .ch-session {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+.ch-join form,
+.ch-join > div {
+  width: min(420px, 100%);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.ch-join h1 {
+  margin: 0;
+  font-size: 26px;
+}
+
+.ch-join p {
+  margin: 0;
+  color: var(--muted);
+}
+
+.ch-join input {
+  font: inherit;
+  color: var(--ink);
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 10px 12px;
+}
+
+.ch-error {
+  color: #b3261e;
+}
+
+/* The classroom */
+
+.ch-room {
+  height: 100%;
+  display: grid;
+  grid-template-rows: auto minmax(0, 1fr);
+}
+
+.ch-middle {
+  min-height: 0;
+  display: flex;
+}
+
+.ch-stage {
+  flex: 1;
+  min-width: 0;
+  display: grid;
+  grid-template-rows: minmax(0, 1fr) auto;
+}
+
+.ch-chat {
+  width: 320px;
+  flex: none;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  border-left: 1px solid var(--line);
+}
+
+/* A poll from the lecturer, pinned at the top of the chat. */
+.ch-poll {
+  padding: 12px 14px 14px;
+  border-bottom: 1px solid var(--line);
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.ch-poll-head {
+  font-size: 12.5px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.ch-poll-question {
+  font-weight: 600;
+}
+
+.ch-poll-option {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  font: inherit;
+  font-size: 15px;
+  text-align: left;
+  color: var(--ink);
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 6px 10px;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.ch-poll-option:disabled {
+  cursor: default;
+}
+
+.ch-poll-option[aria-pressed='true'] {
+  border-color: var(--accent);
+}
+
+/* How many chose it, as a bar behind the words. */
+.ch-poll-bar {
+  position: absolute;
+  inset: 0 auto 0 0;
+  background: var(--line);
+  transition: width 0.3s;
+}
+
+.ch-poll-text,
+.ch-poll-count {
+  position: relative;
+}
+
+.ch-poll-count {
+  color: var(--muted);
+  font-variant-numeric: tabular-nums;
+}
+
+.ch-chat-list {
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+  padding: 14px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  font-size: 15px;
+}
+
+.ch-chat-list p {
+  margin: 0;
+  overflow-wrap: anywhere;
+}
+
+.ch-chat-list strong {
+  font-weight: 600;
+  margin-right: 4px;
+}
+
+.ch-chat-empty,
+.ch-chat-mine strong {
+  color: var(--muted);
+}
+
+.ch-chat form {
+  display: flex;
+  gap: 8px;
+  padding: 12px 16px 18px;
+  border-top: 1px solid var(--line);
+}
+
+.ch-chat input {
+  flex: 1;
+  min-width: 0;
+  font: inherit;
+  color: var(--ink);
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 6px 10px;
+}
+
+.ch-button[aria-pressed='true'] {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.ch-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  padding: 10px 20px;
+  border-bottom: 1px solid var(--line);
+}
+
+.ch-top-title {
+  display: flex;
+  align-items: baseline;
+  gap: 14px;
+  min-width: 0;
+}
+
+.ch-brand {
+  font-weight: 600;
+}
+
+.ch-segment {
+  color: var(--muted);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.ch-top-right {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  color: var(--muted);
+  font-size: 14px;
+  white-space: nowrap;
+}
+
+.ch-volume {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.ch-volume input {
+  width: 110px;
+  accent-color: var(--accent);
+}
+
+.ch-volume span {
+  min-width: 3.2em;
+  font-variant-numeric: tabular-nums;
+}
+
+.ch-main {
+  position: relative;
+  min-height: 0;
+  padding: 20px;
+}
+
+/* The stage: rows of panes, as the lecturer splits it. */
+.ch-stage-rows {
+  height: 100%;
+  display: grid;
+  gap: 14px;
+}
+
+.ch-stage-row {
+  min-height: 0;
+  display: grid;
+  gap: 14px;
+}
+
+.ch-pane {
+  min-width: 0;
+  min-height: 0;
+}
+
+.ch-pane-empty {
+  height: 100%;
+  display: grid;
+  place-items: center;
+  color: var(--muted);
+  border: 1px dashed var(--line);
+  border-radius: 12px;
+}
+
+/* Slides. A slide is a fixed 16:9 sheet of light paper in both themes, like a
+   projected slide, and everything on it is sized from its width. */
+.ch-slides {
+  height: 100%;
+  position: relative;
+  container-type: size;
+  display: grid;
+  place-items: center;
+}
+
+.ch-slide {
+  --mark: #ffe58a;
+  --mark-ink: #17191e;
+  --accent: #2f5fd0;
+  --muted: #5e6573;
+  width: min(100cqw, calc(100cqh * 16 / 9));
+  aspect-ratio: 16 / 9;
+  container-type: inline-size;
+  position: relative;
+  overflow: hidden;
+  background: #ffffff;
+  color: #17191e;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+}
+
+.ch-slide-inner {
+  position: absolute;
+  inset: 0;
+  font-size: 2.7cqw;
+  line-height: 1.4;
+  padding: 5cqw 6cqw;
+  display: flex;
+  flex-direction: column;
+  gap: 1.8cqw;
+}
+
+.ch-slide-title {
+  margin: 0;
+  font-size: 1.5em;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+
+.ch-slide-body {
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1.1cqw;
+}
+
+.ch-slide-item {
+  align-self: flex-start;
+  padding: 0.05em 0.35em;
+  margin-left: -0.35em;
+  border-radius: 0.35em;
+  transition:
+    background-color 0.25s,
+    opacity 0.25s;
+}
+
+.ch-slide-bullet::before {
+  content: '•';
+  margin-right: 0.55em;
+  color: var(--muted);
+}
+
+.ch-slide-item .katex-display {
+  margin: 0;
+}
+
+.ch-slide-image {
+  flex: 1;
+  min-height: 0;
+}
+
+.ch-slide-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.ch-slide-area,
+.ch-slide-loose {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  gap: 0.3em;
+  border-radius: 0.35em;
+}
+
+.ch-slide-loose {
+  left: 6cqw;
+  right: 6cqw;
+  bottom: 4cqw;
+}
+
+.ch-slide .ch-line-math,
+.ch-slide .ch-line-text {
+  font-size: 1em;
+}
+
+.ch-slide-item[data-mark='highlight'],
+.ch-slide-area[data-mark='highlight'] {
+  background-color: var(--mark);
+}
+
+.ch-slide-item[data-mark='box'],
+.ch-slide-area[data-mark='box'] {
+  outline: 0.12em solid var(--accent);
+  outline-offset: 0.1em;
+}
+
+.ch-slide-item[data-mark='underline'],
+.ch-slide-area[data-mark='underline'] {
+  border-bottom: 0.14em solid var(--accent);
+  border-radius: 0;
+}
+
+.ch-slide-item[data-mark='dim'],
+.ch-slide-area[data-mark='dim'] {
+  opacity: 0.35;
+}
+
+.ch-slide-count {
+  position: absolute;
+  right: 4px;
+  bottom: 0;
+  font-size: 13px;
+  color: var(--muted);
+  font-variant-numeric: tabular-nums;
+}
+
+/* The shared screen, drawn as a browser window: tabs, address, then the page. */
+.ch-screen {
+  height: 100%;
+  display: grid;
+  grid-template-rows: auto minmax(0, 1fr);
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.ch-browser-top {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 8px 10px;
+  border-bottom: 1px solid var(--line);
+  background: var(--bg);
+}
+
+.ch-tabs {
+  display: flex;
+  gap: 4px;
+  min-width: 0;
+}
+
+.ch-tab {
+  flex: 0 1 190px;
+  min-width: 0;
+  padding: 4px 10px;
+  border: 1px solid var(--line);
+  border-radius: 7px;
+  font-size: 13px;
+  color: var(--muted);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.ch-tab[aria-current='true'] {
+  background: var(--panel);
+  color: var(--ink);
+  border-color: var(--accent);
+}
+
+.ch-address {
+  padding: 3px 10px;
+  border-radius: 999px;
+  background: var(--panel);
+  border: 1px solid var(--line);
+  font-size: 13px;
+  color: var(--muted);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  min-height: 1.9em;
+}
+
+/* The page fills the pane from the top, at the pane's own shape. */
+.ch-screen-video {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: top center;
+  background: var(--panel);
+}
+
+.ch-screen .ch-pane-empty {
+  border: 0;
+  border-radius: 0;
+}
+
+.ch-board {
+  height: 100%;
+  overflow-y: auto;
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+}
+
+.ch-board-page {
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 28px 36px 40px;
+  /* Two columns, each as wide as what is written in it. The second is empty
+     unless the lecturer starts one. */
+  display: grid;
+  grid-template-columns: auto auto;
+  justify-content: start;
+  align-items: start;
+  column-gap: 56px;
+  row-gap: 14px;
+}
+
+.ch-board-cell {
+  min-width: 0;
+}
+
+/* A gap above a line sets a new problem apart from the one before it. */
+.ch-board-space {
+  padding-top: 30px;
+}
+
+.ch-line {
+  padding: 4px 8px;
+  border-radius: 8px;
+  transition:
+    background-color 0.25s,
+    opacity 0.25s;
+}
+
+.ch-line-title {
+  font-size: 28px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  padding-bottom: 6px;
+}
+
+.ch-line-text {
+  font-size: 22px;
+}
+
+.ch-line-math {
+  font-size: 24px;
+}
+
+.ch-line-math .katex-display {
+  margin: 0;
+}
+
+.ch-line-math .katex-display.fleqn > .katex {
+  padding-left: 0;
+}
+
+/* Written in from left to right, like chalk. */
+.ch-reveal {
+  animation-name: ch-reveal;
+  animation-timing-function: linear;
+  animation-fill-mode: both;
+}
+
+@keyframes ch-reveal {
+  from {
+    clip-path: inset(-20% 100% -20% -2%);
+  }
+  to {
+    clip-path: inset(-20% -2% -20% -2%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ch-reveal {
+    animation: none;
+  }
+}
+
+/* Marks. Plain colour changes only: nothing glows or flashes. */
+.ch-line-row {
+  display: flex;
+  position: relative;
+  isolation: isolate;
+}
+
+.ch-part-marks {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+}
+
+.ch-part-mark {
+  position: absolute;
+  border-radius: 5px;
+}
+
+.ch-part-mark-highlight,
+.ch-line-row[data-mark='highlight'] > .ch-line {
+  background-color: var(--mark);
+}
+
+.ch-line [data-mark-part='highlight'],
+.ch-line-row[data-mark='highlight'] > .ch-line {
+  color: var(--mark-ink);
+}
+
+.ch-part-mark-underline {
+  border-bottom: 3px solid var(--accent);
+  border-radius: 0;
+}
+
+.ch-line-row[data-mark='underline'] > .ch-line {
+  border-bottom: 3px solid var(--accent);
+  border-radius: 0;
+}
+
+.ch-part-mark-box,
+.ch-line-row[data-mark='box'] > .ch-line {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+.ch-line [data-mark-part='dim'],
+.ch-line-row[data-mark='dim'] > .ch-line {
+  opacity: 0.35;
+}
+
+/* A line through a whole dimmed line. (text-decoration does not cross an equation.) */
+.ch-line-row[data-mark='dim'] > .ch-line {
+  background: linear-gradient(currentColor, currentColor) center / 100% 2px no-repeat;
+}
+
+.ch-status {
+  position: absolute;
+  left: 50%;
+  bottom: 36px;
+  transform: translateX(-50%);
+  background: var(--bg);
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 6px 16px;
+  color: var(--muted);
+  font-size: 14px;
+}
+
+/* Who may speak, and the buttons for it. */
+.ch-floor {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 8px 10px;
+  min-height: 34px;
+  font-size: 14px;
+}
+
+.ch-react {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 10px;
+  font-size: 17px;
+  line-height: 1.2;
+}
+
+/* A reaction rises a little and fades out over a few seconds. */
+.ch-reactions {
+  position: absolute;
+  left: 34px;
+  bottom: 34px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  pointer-events: none;
+}
+
+.ch-reaction {
+  align-self: flex-start;
+  padding: 4px 12px 4px 8px;
+  background: var(--bg);
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  font-size: 15px;
+  animation: ch-reaction 4.5s ease-out both;
+}
+
+@keyframes ch-reaction {
+  0% {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  8%,
+  75% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-6px);
+  }
+}
+
+.ch-sr {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+}
+
+.ch-floor-note {
+  color: var(--muted);
+}
+
+.ch-floor-on {
+  color: var(--accent);
+  font-weight: 600;
+}
+
+/* Why a button did nothing. On its own line, so the buttons do not move. */
+.ch-floor-told {
+  flex-basis: 100%;
+  text-align: center;
+  color: var(--ink);
+}
+
+.ch-react[aria-pressed='true'] {
+  background: var(--mark);
+  border-color: var(--accent);
+}
+
+.ch-floor-sep {
+  width: 1px;
+  align-self: stretch;
+  background: var(--line);
+  margin: 0 4px;
+}
+
+/* People who are talking. Nobody else is shown. */
+.ch-speakers {
+  width: 168px;
+  flex: none;
+  padding: 20px 14px 20px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  overflow-y: auto;
+}
+
+.ch-speaker {
+  padding: 12px 12px 10px;
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.ch-speaker[data-speaking='true'] {
+  border-color: var(--accent);
+}
+
+.ch-speaker-name {
+  font-weight: 600;
+  overflow-wrap: anywhere;
+}
+
+.ch-speaker-tag {
+  font-size: 12.5px;
+  color: var(--muted);
+  min-height: 1.2em;
+}
+
+.ch-speaker-bars {
+  display: flex;
+  align-items: flex-end;
+  gap: 3px;
+  height: 18px;
+  margin-top: 6px;
+}
+
+.ch-speaker-bars i {
+  width: 4px;
+  height: 100%;
+  border-radius: 2px;
+  background: var(--line);
+  transform-origin: bottom;
+  transform: scaleY(0.2);
+}
+
+.ch-speaker[data-speaking='true'] .ch-speaker-bars i {
+  background: var(--accent);
+  animation: ch-bars 0.7s ease-in-out infinite alternate;
+}
+
+.ch-speaker-bars i:nth-child(2) {
+  animation-delay: -0.5s;
+}
+.ch-speaker-bars i:nth-child(3) {
+  animation-delay: -0.2s;
+}
+.ch-speaker-bars i:nth-child(4) {
+  animation-delay: -0.6s;
+}
+.ch-speaker-bars i:nth-child(5) {
+  animation-delay: -0.35s;
+}
+
+@keyframes ch-bars {
+  from {
+    transform: scaleY(0.25);
+  }
+  to {
+    transform: scaleY(1);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ch-speaker[data-speaking='true'] .ch-speaker-bars i {
+    animation: none;
+    transform: scaleY(0.7);
+  }
+}
+
+/* The people list, behind its button. */
+.ch-people {
+  position: relative;
+}
+
+.ch-people-list {
+  position: absolute;
+  right: 0;
+  top: calc(100% + 8px);
+  z-index: 5;
+  width: 260px;
+  max-height: 60vh;
+  overflow-y: auto;
+  padding: 12px 14px;
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  color: var(--ink);
+  white-space: normal;
+}
+
+.ch-people-count {
+  margin: 0 0 8px;
+  color: var(--muted);
+}
+
+.ch-people-list ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.ch-people-list li {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.ch-people-tag {
+  color: var(--muted);
+  font-size: 13px;
+  text-align: right;
+}
+
+.ch-restart {
+  position: absolute;
+  left: 50%;
+  bottom: 84px;
+  transform: translateX(-50%);
+  background: var(--accent);
+  border-color: var(--accent);
+  color: var(--bg);
+  font-weight: 600;
+}
+
+.ch-bottom {
+  padding: 0 20px 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.ch-caption {
+  min-height: 62px;
+  display: grid;
+  place-items: center;
+  text-align: center;
+}
+
+.ch-caption p {
+  margin: 0;
+  max-width: 60em;
+  font-size: 19px;
+  transition: opacity 0.6s;
+}
+
+.ch-caption-stale {
+  opacity: 0.35;
+}
+
+.ch-pause {
+  max-width: 560px;
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  text-align: center;
+  color: var(--muted);
+}
+
+.ch-pause-track {
+  height: 4px;
+  background: var(--line);
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.ch-pause-left {
+  height: 100%;
+  background: var(--accent);
+  transform-origin: left;
+  animation: ch-pause linear both;
+}
+
+@keyframes ch-pause {
+  from {
+    transform: scaleX(1);
+  }
+  to {
+    transform: scaleX(0);
+  }
+}
+
+.ch-start-audio {
+  position: fixed;
+  top: 64px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--accent);
+  border-color: var(--accent);
+  color: var(--bg);
+  font-weight: 600;
+}
+
+@media (max-width: 760px) {
+  .ch-speakers {
+    width: auto;
+    flex-direction: row;
+    padding: 0 10px 8px;
+  }
+  /* On a narrow screen a row's panes stack, one under another. */
+  .ch-stage-row {
+    grid-template-columns: minmax(0, 1fr) !important;
+    grid-auto-rows: minmax(0, 1fr);
+  }
+  .ch-middle {
+    flex-direction: column;
+  }
+  .ch-chat {
+    width: auto;
+    height: 40%;
+    border-left: 0;
+    border-top: 1px solid var(--line);
+  }
+}
+
+@media (max-width: 640px) {
+  .ch-main {
+    padding: 10px;
+  }
+  .ch-board-page {
+    padding: 18px 16px 28px;
+  }
+  .ch-line-math {
+    font-size: 19px;
+  }
+  .ch-line-title {
+    font-size: 22px;
+  }
+  .ch-line-text {
+    font-size: 18px;
+  }
+  .ch-brand {
+    display: none;
+  }
+  .ch-volume input {
+    width: 70px;
+  }
+  .ch-volume span {
+    display: none;
+  }
+}
+
+/* Pictures on the board and on slides. */
+.ch-line-image img {
+  display: block;
+  max-width: min(100%, 560px);
+  max-height: 46vh;
+  border-radius: 6px;
+}
+
+.ch-slide .ch-line-image img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+/* The place kept for a picture that is still being made. Plain: nothing moves. */
+.ch-line-pending {
+  width: min(100%, 360px);
+  padding: 28px 16px;
+  text-align: center;
+  color: var(--muted);
+  border: 1px dashed var(--line);
+}
+
+/* The video: in its own pane of the stage, or in a slide. */
+.ch-video {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  min-height: 0;
+  display: grid;
+  place-items: center;
+  background: #000;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+/* Laid over the box, so that the video's own shape cannot make it bigger than it. */
+.ch-video video,
+.ch-video iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+  object-fit: contain;
+}
+
+.ch-video-start {
+  position: absolute;
+}
+
+.ch-slide-video {
+  flex: 1;
+  min-height: 0;
+}
+
+.ch-slide-video .ch-video {
+  border-radius: 0.35em;
+}
+
+/* Groups: the panel where a student picks a group, and a helper runs them. */
+.ch-groups {
+  margin-bottom: 12px;
+  padding: 14px 18px;
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+}
+
+.ch-groups h2 {
+  margin: 0 0 6px;
+  font-size: 18px;
+}
+
+.ch-groups h3 {
+  margin: 12px 0 6px;
+  font-size: 15px;
+}
+
+.ch-groups p {
+  margin: 0 0 8px;
+}
+
+.ch-groups ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 8px;
+}
+
+.ch-groups li,
+.ch-groups-student,
+.ch-groups-here {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.ch-groups li > div {
+  flex: 1;
+  min-width: 200px;
+}
+
+.ch-groups li span {
+  color: var(--muted);
+}
+
+.ch-groups-student {
+  margin-bottom: 6px;
+}
+
+.ch-groups-student > span {
+  min-width: 120px;
+}
+
+.ch-groups .ch-button[aria-pressed='true'] {
+  border-color: var(--accent);
+}
+
+.ch-groups-ask {
+  margin-bottom: 10px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--line);
+}
+
+.ch-groups-ask .ch-button {
+  margin-right: 8px;
+}
+
+/* Already in this class in another tab: switch here, or join here too. */
+.ch-elsewhere {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.ch-elsewhere p {
+  margin: 0 0 0.25rem;
+}

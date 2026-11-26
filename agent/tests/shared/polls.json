@@ -1,0 +1,189 @@
+{
+ "start": {
+  "board": {
+   "page": 0,
+   "top": 0,
+   "lines": [],
+   "saved": {}
+  },
+  "stage": {
+   "video": {
+    "src": null,
+    "playing": false,
+    "position": 0.0,
+    "quiet": false
+   },
+   "rows": [
+    [
+     {
+      "source": "board"
+     }
+    ]
+   ],
+   "deck": null,
+   "slide": 1,
+   "ink": {},
+   "marks": {},
+   "screen": {
+    "on": false,
+    "tabs": [],
+    "active": 0,
+    "failed": false
+   }
+  },
+  "floor": {
+   "mode": "hands",
+   "prompt": "",
+   "hands": [],
+   "speaker": null,
+   "paused": false
+  },
+  "polls": []
+ },
+ "events": [
+  {
+   "type": "plan",
+   "segment": "polls",
+   "title": "Polls",
+   "seq": 1
+  },
+  {
+   "type": "board.clear",
+   "seq": 2
+  },
+  {
+   "type": "board.write",
+   "id": "_title",
+   "kind": "title",
+   "content": "Polls",
+   "reveal_ms": 400,
+   "seq": 3
+  },
+  {
+   "type": "say",
+   "id": "0000000000",
+   "text": "A question for you.",
+   "source": "script",
+   "pos": [
+    "polls",
+    1
+   ],
+   "dur_ms": 100,
+   "seq": 4
+  },
+  {
+   "type": "poll.open",
+   "id": "00000000",
+   "question": "Which is bigger?",
+   "options": [
+    "One",
+    "Two",
+    "Three"
+   ],
+   "seq": 5
+  },
+  {
+   "type": "heard",
+   "id": "0000000000",
+   "seq": 6
+  },
+  {
+   "type": "pause.end",
+   "seq": 7
+  },
+  {
+   "type": "say",
+   "id": "0000000000",
+   "text": "Thank you.",
+   "source": "script",
+   "pos": [
+    "polls",
+    5
+   ],
+   "dur_ms": 100,
+   "seq": 8
+  },
+  {
+   "type": "poll.close",
+   "id": "00000000",
+   "counts": [
+    0,
+    0,
+    0
+   ],
+   "seq": 9
+  },
+  {
+   "type": "heard",
+   "id": "0000000000",
+   "seq": 10
+  }
+ ],
+ "state": {
+  "board": {
+   "page": 1,
+   "top": 1,
+   "lines": [
+    {
+     "id": "_title",
+     "kind": "title",
+     "content": "Polls",
+     "marks": {},
+     "col": 0,
+     "beside": "",
+     "space": false
+    }
+   ],
+   "saved": {}
+  },
+  "stage": {
+   "video": {
+    "src": null,
+    "playing": false,
+    "position": 0.0,
+    "quiet": false
+   },
+   "rows": [
+    [
+     {
+      "source": "board"
+     }
+    ]
+   ],
+   "deck": null,
+   "slide": 1,
+   "ink": {},
+   "marks": {},
+   "screen": {
+    "on": false,
+    "tabs": [],
+    "active": 0,
+    "failed": false
+   }
+  },
+  "floor": {
+   "mode": "hands",
+   "prompt": "",
+   "hands": [],
+   "speaker": null,
+   "paused": false
+  },
+  "polls": [
+   {
+    "id": "00000000",
+    "question": "Which is bigger?",
+    "options": [
+     "One",
+     "Two",
+     "Three"
+    ],
+    "counts": [
+     0,
+     0,
+     0
+    ],
+    "open": false
+   }
+  ]
+ }
+}

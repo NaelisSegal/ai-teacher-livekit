@@ -1,0 +1,20 @@
+---
+id: pages
+course: test
+title: Going back to a page
+cover: optional
+source: A short test of wiping the board and bringing a page back. Not a lesson.
+---
+title: First page
+say: This is the first page.
+write a: a = 1
+title: Second page
+say: Now the board is wiped, and this is a second page.
+write b: b = 2
+say: Let's go back to the first page.
+page: First page
+say: Here it is again, and I can add to it without writing it out again.
+write c: c = a + 1
+say: And now back to the second page.
+page: Second page
+say: That is the end of the test.

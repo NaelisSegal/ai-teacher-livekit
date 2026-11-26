@@ -1,0 +1,16 @@
+---
+id: stage
+title: The stage
+---
+# Slides for the stage check (stage.seg). Not lesson content.
+
+slide: A slide with named lines
+> A slide is drawn in each browser, not sent as a picture.
+- (inside) This line is called inside, so it can be marked.
+- (outside) This line is called outside.
+
+slide: A slide with an equation and an empty area
+$ (rule) \frac{dy}{dx} = \frac{dy}{du} \cdot \frac{du}{dx}
+- The equation is called rule.
+- The empty area on the right is called work.
+area work: 0.56 0.26 0.4 0.3

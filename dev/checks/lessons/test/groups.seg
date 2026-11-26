@@ -1,0 +1,11 @@
+---
+id: groups
+course: test
+title: Groups
+cover: optional
+source: A short test of the class splitting into groups and coming back. Not a lesson.
+---
+title: Groups
+say: The class is about to split into two groups.
+split: choose 2 | Going back to a page = test/pages | Room on the board = test/layout
+say: Everyone is back together. That is the end of the test.

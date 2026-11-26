@@ -1,0 +1,24 @@
+---
+id: layout
+course: test
+title: Room on the board
+cover: optional
+source: A short test of gaps and a second column on the board. Not a lesson.
+---
+title: Two problems on one board
+say: Here is the first problem.
+write p1: \frac{d}{dx}\,(3x+1)^5
+write a1: = 5(3x+1)^4 \cdot 3
+write b1: = 15(3x+1)^4
+say: A gap sets the second problem apart, and the first one stays up.
+gap:
+write p2: \frac{d}{dx}\,\sin(x^2)
+write a2: = \cos(x^2) \cdot 2x
+say: There is room beside the first problem, so notes can go there.
+column: right beside p1
+note n1: outside: something to the fifth
+note n2: inside: 3x + 1
+say: And writing carries on down the first column.
+column: left
+note c: Both use the chain rule.
+say: That is the end of the test.

@@ -1,0 +1,20 @@
+logs/
+generated/
+.env
+.env.*
+!.env.example
+.DS_Store
+__pycache__
+.venv
+node_modules
+.next
+*.egg-info
+.pytest_cache
+.ruff_cache
+*.tsbuildinfo
+.claude/settings.local.json
+
+# Your own lessons are yours: only the example and the note are in the repo.
+lessons/*
+!lessons/README.md
+!lessons/example/

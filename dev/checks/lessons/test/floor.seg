@@ -1,0 +1,29 @@
+---
+id: floor
+course: test
+title: Who may speak
+cover: optional
+source: A short test of raised hands, open mics and staff. Not a lesson.
+---
+title: Who may speak
+say: This class starts with hands. Raise a hand if you want to speak.
+say: Here is some talking to fill the time, one sentence after another.
+say: And another sentence, so that there is something to wait behind.
+say: The lecturer keeps going until it gives someone the floor.
+say: Here is one more sentence of the lesson.
+say: And one more after that.
+say: Here is a poll. It is in the chat.
+poll: Which do you find easier? | Working on paper | Working in your head | About the same
+say: Give a thumbs up if you can hear this.
+say: Now a short task. Press done when you have finished it.
+pause: 30 Press done when you have finished.
+poll: close
+say: Now the mics are open for a discussion. Unmute if you want to say something.
+mic: open What do you think so far?
+pause: 9 Unmute and say what you think.
+say: Thank you. Hands again now.
+mic: hands
+say: This sentence is here for the helper to talk over.
+say: And this one is here in case the helper needs a bit longer.
+say: The helper may also share a screen at any time.
+say: That is the end of the test.

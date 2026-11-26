@@ -1,0 +1,374 @@
+{
+ "start": {
+  "board": {
+   "page": 0,
+   "top": 0,
+   "lines": [],
+   "saved": {}
+  },
+  "stage": {
+   "video": {
+    "src": null,
+    "playing": false,
+    "position": 0.0,
+    "quiet": false
+   },
+   "rows": [
+    [
+     {
+      "source": "board"
+     }
+    ]
+   ],
+   "deck": null,
+   "slide": 1,
+   "ink": {},
+   "marks": {},
+   "screen": {
+    "on": false,
+    "tabs": [],
+    "active": 0,
+    "failed": false
+   }
+  },
+  "floor": {
+   "mode": "hands",
+   "prompt": "",
+   "hands": [],
+   "speaker": null,
+   "paused": false
+  },
+  "polls": []
+ },
+ "events": [
+  {
+   "type": "plan",
+   "segment": "stage",
+   "title": "Stage",
+   "seq": 1
+  },
+  {
+   "type": "board.clear",
+   "seq": 2
+  },
+  {
+   "type": "board.write",
+   "id": "_title",
+   "kind": "title",
+   "content": "Stage",
+   "reveal_ms": 400,
+   "seq": 3
+  },
+  {
+   "type": "say",
+   "id": "0000000000",
+   "text": "First the board alone.",
+   "source": "script",
+   "pos": [
+    "stage",
+    1
+   ],
+   "dur_ms": 100,
+   "seq": 4
+  },
+  {
+   "type": "slides.load",
+   "deck": {
+    "id": "stage",
+    "title": "The stage",
+    "slides": [
+     {
+      "title": "A slide with named lines",
+      "items": [
+       {
+        "kind": "text",
+        "name": "",
+        "content": "A slide is drawn in each browser, not sent as a picture."
+       },
+       {
+        "kind": "bullet",
+        "name": "inside",
+        "content": "This line is called inside, so it can be marked."
+       },
+       {
+        "kind": "bullet",
+        "name": "outside",
+        "content": "This line is called outside."
+       }
+      ],
+      "areas": {}
+     },
+     {
+      "title": "A slide with an equation and an empty area",
+      "items": [
+       {
+        "kind": "math",
+        "name": "rule",
+        "content": "\\frac{dy}{dx} = \\frac{dy}{du} \\cdot \\frac{du}{dx}"
+       },
+       {
+        "kind": "bullet",
+        "name": "",
+        "content": "The equation is called rule."
+       },
+       {
+        "kind": "bullet",
+        "name": "",
+        "content": "The empty area on the right is called work."
+       }
+      ],
+      "areas": {
+       "work": [
+        0.56,
+        0.26,
+        0.4,
+        0.3
+       ]
+      }
+     }
+    ]
+   },
+   "seq": 5
+  },
+  {
+   "type": "stage.show",
+   "rows": [
+    [
+     {
+      "source": "slides"
+     },
+     {
+      "source": "board"
+     }
+    ]
+   ],
+   "seq": 6
+  },
+  {
+   "type": "heard",
+   "id": "0000000000",
+   "seq": 7
+  },
+  {
+   "type": "say",
+   "id": "0000000000",
+   "text": "Now the slides beside it.",
+   "source": "script",
+   "pos": [
+    "stage",
+    4
+   ],
+   "dur_ms": 100,
+   "seq": 8
+  },
+  {
+   "type": "slides.go",
+   "n": 2,
+   "seq": 9
+  },
+  {
+   "type": "heard",
+   "id": "0000000000",
+   "seq": 10
+  },
+  {
+   "type": "say",
+   "id": "0000000000",
+   "text": "The next slide.",
+   "source": "script",
+   "pos": [
+    "stage",
+    6
+   ],
+   "dur_ms": 100,
+   "seq": 11
+  },
+  {
+   "type": "stage.show",
+   "rows": [
+    [
+     {
+      "source": "board"
+     }
+    ]
+   ],
+   "seq": 12
+  },
+  {
+   "type": "heard",
+   "id": "0000000000",
+   "seq": 13
+  },
+  {
+   "type": "say",
+   "id": "0000000000",
+   "text": "And the board again.",
+   "source": "script",
+   "pos": [
+    "stage",
+    8
+   ],
+   "dur_ms": 100,
+   "seq": 14
+  },
+  {
+   "type": "heard",
+   "id": "0000000000",
+   "seq": 15
+  },
+  {
+   "type": "floor.mode",
+   "mode": "hands",
+   "prompt": "",
+   "seq": 16
+  },
+  {
+   "type": "floor.hand",
+   "identity": "ada",
+   "name": "Ada",
+   "up": true,
+   "seq": 17
+  },
+  {
+   "type": "floor.hand",
+   "identity": "bo",
+   "name": "Bo",
+   "up": true,
+   "seq": 18
+  },
+  {
+   "type": "floor.give",
+   "identity": "ada",
+   "name": "Ada",
+   "seq": 19
+  },
+  {
+   "type": "floor.take",
+   "identity": "ada",
+   "seq": 20
+  },
+  {
+   "type": "floor.hand",
+   "identity": "bo",
+   "name": "Bo",
+   "up": false,
+   "seq": 21
+  },
+  {
+   "type": "floor.mode",
+   "mode": "open",
+   "prompt": "Tell me what you think",
+   "seq": 22
+  },
+  {
+   "type": "floor.pause",
+   "on": true,
+   "seq": 23
+  }
+ ],
+ "state": {
+  "board": {
+   "page": 1,
+   "top": 1,
+   "lines": [
+    {
+     "id": "_title",
+     "kind": "title",
+     "content": "Stage",
+     "marks": {},
+     "col": 0,
+     "beside": "",
+     "space": false
+    }
+   ],
+   "saved": {}
+  },
+  "stage": {
+   "video": {
+    "src": null,
+    "playing": false,
+    "position": 0.0,
+    "quiet": false
+   },
+   "rows": [
+    [
+     {
+      "source": "board"
+     }
+    ]
+   ],
+   "deck": {
+    "id": "stage",
+    "title": "The stage",
+    "slides": [
+     {
+      "title": "A slide with named lines",
+      "items": [
+       {
+        "kind": "text",
+        "name": "",
+        "content": "A slide is drawn in each browser, not sent as a picture."
+       },
+       {
+        "kind": "bullet",
+        "name": "inside",
+        "content": "This line is called inside, so it can be marked."
+       },
+       {
+        "kind": "bullet",
+        "name": "outside",
+        "content": "This line is called outside."
+       }
+      ],
+      "areas": {}
+     },
+     {
+      "title": "A slide with an equation and an empty area",
+      "items": [
+       {
+        "kind": "math",
+        "name": "rule",
+        "content": "\\frac{dy}{dx} = \\frac{dy}{du} \\cdot \\frac{du}{dx}"
+       },
+       {
+        "kind": "bullet",
+        "name": "",
+        "content": "The equation is called rule."
+       },
+       {
+        "kind": "bullet",
+        "name": "",
+        "content": "The empty area on the right is called work."
+       }
+      ],
+      "areas": {
+       "work": [
+        0.56,
+        0.26,
+        0.4,
+        0.3
+       ]
+      }
+     }
+    ]
+   },
+   "slide": 2,
+   "ink": {},
+   "marks": {},
+   "screen": {
+    "on": false,
+    "tabs": [],
+    "active": 0,
+    "failed": false
+   }
+  },
+  "floor": {
+   "mode": "open",
+   "prompt": "Tell me what you think",
+   "hands": [],
+   "speaker": null,
+   "paused": true
+  },
+  "polls": []
+ }
+}

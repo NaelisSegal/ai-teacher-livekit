@@ -1,0 +1,40 @@
+---
+id: stage
+course: test
+title: The stage
+cover: optional
+source: A short test of slides, split screens and the shared screen. Not a lesson.
+---
+title: The stage
+say: This is the board, as before.
+write a: y = f(g(x))
+prepare: https://en.wikipedia.org/wiki/Chain_rule
+prepare: https://en.wikipedia.org/wiki/Derivative
+say: Now the stage changes to slides.
+slides: test/stage
+show: slides
+say: The lecturer can mark a named part of a slide.
+mark: highlight slide.inside
+say: Here is the next slide.
+slide: next
+say: It can mark an equation on a slide, and write in an empty area.
+mark: box slide.rule
+write w @work: \frac{dy}{dx} = 5 \cdot 3 = 15
+say: The board can go on the left, with the slides on the right.
+show: board | slides
+say: Anything written now goes on the board, next to the slide.
+write b: g'(x) = 15(3x+1)^4
+say: Two slides can be shown at once, with the board beside them.
+show: slides 1 | slides 2 | board
+say: Now a real web page, on a shared screen. Two tabs were opened before they were needed.
+show: screen
+tab: 1
+say: It can be scrolled while the lecturer talks.
+scroll: 500
+say: Here is the other tab.
+tab: 2
+say: And the web page can sit beside the board, with the slides underneath.
+show: screen | board / slides
+say: Then back to the board alone.
+show: board
+say: That is the end of the test.
