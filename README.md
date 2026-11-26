@@ -4,7 +4,7 @@ An AI lecturer that teaches live online classes. Students join in a browser and 
 lecturer teaches them in real time: it speaks, writes on a board as it speaks, shows
 slides, pictures, videos and web pages, sets the class problems and waits while they
 work, answers what they type or say, and changes the lesson to fit the people who
-are there. 
+are there.
 
 It is what will teach the classes at [Curiosity Hall](https://curiosityhall.com).
 
@@ -152,12 +152,15 @@ It runs on one server, as the lecturer and the web app share folders on disk
 run one web process. The web app on a serverless host, or the lecturer on LiveKit
 Cloud's agent hosting, are not supported yet.
 
-- Run the web app built (`cd web && pnpm build && pnpm start --port 4072`), and the
-  lecturer with `start`, not `dev` (`cd agent && uv run python -m lecturer.agent
-  start`), or use `docker-compose.yml`. Use your own LiveKit server or LiveKit Cloud
-  for the rooms: set `LIVEKIT_URL`, `LIVEKIT_API_KEY` and `LIVEKIT_API_SECRET` for
-  both, and `LIVEKIT_PUBLIC_URL` for the web app if browsers reach LiveKit at another
-  address. With Docker, set `node_ip` in `dev/livekit.docker.yaml` to the server's
+- Run the web app built, and the lecturer with `start`, not `dev`, or use
+  `docker-compose.yml`:
+
+      (cd web && pnpm build && pnpm start --port 4072)
+      (cd agent && uv run python -m lecturer.agent start)
+
+- Use your own LiveKit server or LiveKit Cloud for the rooms: set `LIVEKIT_URL`,
+  `LIVEKIT_API_KEY` and `LIVEKIT_API_SECRET` for both, and `LIVEKIT_PUBLIC_URL` for the
+  web app if browsers reach LiveKit at another address. With Docker, set `node_ip` in `dev/livekit.docker.yaml` to the server's
   public address.
 - Leave `CH_OPEN_ROOMS` out. Then a class can be joined only if `lessons/schedule.json`
   lists it, and only around its time, at `/class/<its id>`. Nothing lists the
