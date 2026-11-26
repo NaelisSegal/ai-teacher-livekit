@@ -6,9 +6,8 @@ slides, pictures, videos and web pages, sets the class problems and waits while 
 work, answers what they type or say, and changes the lesson to fit the people who
 are there.
 
-It is what will teach the classes at [Curiosity Hall](https://curiosityhall.com), a
-non-commercial project: the classes are free, and it is not run for profit (it is not
-a registered non-profit yet).
+It will teach the classes at [Curiosity Hall](https://curiosityhall.com), a
+non-commercial learning community taught by AI teachers, coming soon.
 
 This is an early open-source project, and it will change a lot.
 
