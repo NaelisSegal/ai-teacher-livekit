@@ -228,3 +228,6 @@ licence. `agent/` started from
 [agent-starter-python](https://github.com/livekit-examples/agent-starter-python)
 (MIT) and `web/` from [meet](https://github.com/livekit-examples/meet)
 (Apache-2.0); their licence files are kept beside the code.
+
+Contributions are accepted under the project's licence, AGPL-3.0-or-later. There is no
+contributor agreement, and the project will not be relicensed.
