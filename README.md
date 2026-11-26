@@ -6,8 +6,9 @@ slides, pictures, videos and web pages, sets the class problems and waits while 
 work, answers what they type or say, and changes the lesson to fit the people who
 are there.
 
-It will teach the classes at [Curiosity Hall](https://curiosityhall.com), a
-non-commercial learning community taught by AI teachers, coming soon.
+Built for [Curiosity Hall](https://curiosityhall.com), a non-commercial learning
+community taught by AI teachers, coming soon. Anyone is welcome to use it for their
+own classes.
 
 This is an early open-source project, and it will change a lot.
 
