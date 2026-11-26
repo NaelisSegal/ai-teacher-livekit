@@ -1,8 +1,10 @@
-# LiveKit, the lecturer and the class page, on one machine:
-#   cp agent/.env.example agent/.env.local && cp web/.env.example web/.env.local
+# LiveKit, the lecturer and the class page, for trying it on this machine:
+#   cp -n agent/.env.example agent/.env.local && cp -n web/.env.example web/.env.local
 #   docker compose up --build
 # then open http://localhost:4072. lessons/, generated/ and logs/ are shared with the
-# containers. For a real server, see "Running it on a server" in the README.
+# containers. It uses LiveKit's well-known development key and open rooms, and listens
+# on this machine only: it is not for a server as it is. See "Running it on a server"
+# in the README.
 services:
   livekit:
     image: livekit/livekit-server:v1.13.7
@@ -10,9 +12,9 @@ services:
     volumes:
       - ./dev/livekit.docker.yaml:/etc/livekit.yaml:ro
     ports:
-      - "4070:4070"
-      - "4071:4071/tcp"
-      - "4071:4071/udp"
+      - "127.0.0.1:4070:4070"
+      - "127.0.0.1:4071:4071/tcp"
+      - "127.0.0.1:4071:4071/udp"
 
   agent:
     build:
@@ -41,10 +43,11 @@ services:
     environment:
       LIVEKIT_URL: ws://livekit:4070
       LIVEKIT_PUBLIC_URL: ${LIVEKIT_PUBLIC_URL:-ws://localhost:4070}
+      CH_OPEN_ROOMS: "1"
     volumes:
       - ./lessons:/app/lessons:ro
       - ./generated:/app/generated:ro
     ports:
-      - "4072:4072"
+      - "127.0.0.1:4072:4072"
     depends_on:
       - livekit

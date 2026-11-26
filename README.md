@@ -87,8 +87,8 @@ You need [`livekit-server`](https://docs.livekit.io/home/self-hosting/local/),
 [`uv`](https://docs.astral.sh/uv/) and [`pnpm`](https://pnpm.io/) (with Node 20.9 or
 later). From the top of the repo:
 
-    (cd agent && uv sync && cp .env.example .env.local)
-    (cd web && pnpm install && cp .env.example .env.local)
+    (cd agent && uv sync && cp -n .env.example .env.local)
+    (cd web && pnpm install && cp -n .env.example .env.local)
     dev/stack.sh
 
 Then open http://localhost:4072. It lists every lesson it finds, with a link to
@@ -128,13 +128,15 @@ for trying things out.
 
 ### With Docker
 
-    cp agent/.env.example agent/.env.local
-    cp web/.env.example web/.env.local
+    cp -n agent/.env.example agent/.env.local
+    cp -n web/.env.example web/.env.local
     docker compose up --build
 
 starts LiveKit, the lecturer and the web app (with the OpenAI voice plugin installed)
-on the same ports, sharing `lessons/`, `generated/` and `logs/` with this folder. The
-lecturer's image has no Chrome, so a lesson's shared-screen steps are skipped.
+on the same ports, sharing `lessons/`, `generated/` and `logs/` with this folder. It
+is for trying it on one machine: it uses LiveKit's well-known development key and
+open rooms, and listens on this machine only. The lecturer's image has no Chrome, so
+a lesson's shared-screen steps are skipped.
 
 ## Writing a lesson
 
@@ -152,16 +154,20 @@ It runs on one server, as the lecturer and the web app share folders on disk
 run one web process. The web app on a serverless host, or the lecturer on LiveKit
 Cloud's agent hosting, are not supported yet.
 
-- Run the web app built, and the lecturer with `start`, not `dev`, or use
-  `docker-compose.yml`:
+- Run the web app built, and the lecturer with `start`, not `dev`:
 
       (cd web && pnpm build && pnpm start --port 4072)
       (cd agent && uv run python -m lecturer.agent start)
 
-- Use your own LiveKit server or LiveKit Cloud for the rooms: set `LIVEKIT_URL`,
-  `LIVEKIT_API_KEY` and `LIVEKIT_API_SECRET` for both, and `LIVEKIT_PUBLIC_URL` for the
-  web app if browsers reach LiveKit at another address. With Docker, set `node_ip` in `dev/livekit.docker.yaml` to the server's
-  public address.
+- Use your own LiveKit server, with keys of your own (never the development key in
+  `dev/`), or LiveKit Cloud: set `LIVEKIT_URL`, `LIVEKIT_API_KEY` and
+  `LIVEKIT_API_SECRET` for both, and `LIVEKIT_PUBLIC_URL` for the web app if browsers
+  reach LiveKit at another address. To start from `docker-compose.yml`, change it the
+  same way: your own keys in its LiveKit config and in both `.env.local` files, the
+  addresses, and `node_ip` set to the server's public address.
+- Serve the web app over HTTPS and LiveKit over `wss://`: browsers let a page use the
+  microphone only if it is secure, and a secure page can reach LiveKit only over
+  `wss://`.
 - Leave `CH_OPEN_ROOMS` out. Then a class can be joined only if `lessons/schedule.json`
   lists it, and only around its time, at `/class/<its id>`. Nothing lists the
   classes: give each class's link to the people who should come. Each class can be
@@ -221,11 +227,13 @@ The last needs `CH_HEARING`, `CH_WRITER` and a recording of someone speaking.
 - Model call limits are for each lecturer, so a class that splits into groups can
   make more calls, and the groups' overseer is not counted.
 - One server only: no serverless hosting or LiveKit Cloud agents yet (see above).
+- Pictures and videos in `lessons/` can be fetched by anyone who knows their address,
+  whatever the schedule says.
 - Moderation is not built.
 
 ## Licence
 
-[AGPL-3.0](LICENSE): you may use, change and share this, and if you run a changed
+[AGPL-3.0-or-later](LICENSE): you may use, change and share this, and if you run a changed
 version for other people to use, you must make your changes available under the same
 licence. `agent/` started from
 [agent-starter-python](https://github.com/livekit-examples/agent-starter-python)

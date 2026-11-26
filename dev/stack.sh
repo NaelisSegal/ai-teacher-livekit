@@ -40,7 +40,9 @@ done
 pids+=($!)
 
 if [ $web = 1 ]; then
-  (cd web && exec pnpm dev --port 4072) > >(sed -u 's/^/[web] /') 2>&1 &
+  # Open rooms (any room name, the lesson from the link): this is a development stack.
+  # Listening on this machine only.
+  (cd web && CH_OPEN_ROOMS=1 exec pnpm dev --port 4072 --hostname 127.0.0.1) > >(sed -u 's/^/[web] /') 2>&1 &
   pids+=($!)
 fi
 
