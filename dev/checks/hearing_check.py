@@ -9,7 +9,8 @@ one yourself, or make one with a text-to-speech tool, for example:
     say -o speech.wav --data-format=LEI16@16000 "Is the radius six or three?"   (Mac)
     espeak-ng -w speech.wav "Is the radius six or three?"   (Linux; then convert it to
                                                             16 kHz with sox or ffmpeg)
-Needs the stack running and CH_HEARING set (see settings.py).
+Needs the stack running, and CH_HEARING and CH_WRITER set (see settings.py): only a
+class taught live listens, so the check starts one, of the example lesson.
 """
 
 from __future__ import annotations
@@ -28,8 +29,8 @@ RATE = 16000
 
 async def main() -> int:
     path = sys.argv[1]
-    room_name = f"hearing-check-{int(time.time())}"
-    await ensure_lecturer(room_name, {"lesson": "test/stage", "start_delay": 1})
+    room_name = f"live-hearing-check-{int(time.time())}"
+    await ensure_lecturer(room_name, {"lesson": "example/cone", "live": True, "start_delay": 1})
     room = rtc.Room()
     await room.connect(URL, token(room_name, "bot-helper", "Helper", "helper"))
     source = rtc.AudioSource(RATE, 1)

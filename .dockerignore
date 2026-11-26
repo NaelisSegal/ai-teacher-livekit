@@ -1,0 +1,11 @@
+# Never in an image: keys, and what is made or kept while running.
+**/.env.local
+**/.env
+**/node_modules
+**/.venv
+**/.next
+**/__pycache__
+logs
+generated
+lessons
+.git

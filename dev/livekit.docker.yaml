@@ -1,0 +1,13 @@
+# LiveKit for docker-compose.yml, on one machine. Like dev/livekit.yaml, with the
+# well-known dev key: never use it on a real server. node_ip is the address browsers
+# are told to send media to: the host, where the ports are published.
+port: 4070
+rtc:
+  tcp_port: 4071
+  udp_port: 4071
+  use_external_ip: false
+  node_ip: 127.0.0.1
+keys:
+  devkey: secret
+logging:
+  level: info

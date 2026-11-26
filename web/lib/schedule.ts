@@ -20,6 +20,8 @@ export type Session = {
   id: string;
   kind: SessionKind;
   title: string;
+  /** Taught live (written as it is taught, which needs a writer model), not read. */
+  live: boolean;
   about: string;
   lesson: string;
   /** When it starts, as milliseconds since 1970. */
@@ -72,6 +74,7 @@ export async function loadSessions(): Promise<Session[]> {
         kind: s.kind === 'office-hours' ? 'office-hours' : 'class',
         title: String(s.title ?? id),
         about: String(s.about ?? ''),
+        live: s.live === true,
         lesson,
         starts: parseStart(String(s.starts ?? '')),
         minutes,

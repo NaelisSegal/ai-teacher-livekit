@@ -6,7 +6,7 @@ slides, pictures, videos and web pages, sets the class problems and waits while 
 work, answers what they type or say, and changes the lesson to fit the people who
 are there. 
 
-It is what will teache the classes at [Curiosity Hall](https://curiosityhall.com).
+It is what will teach the classes at [Curiosity Hall](https://curiosityhall.com).
 
 This is an early open-source project, and it will change a lot.
 
@@ -110,6 +110,32 @@ shows what each job is set to and tries each model once.
 
 Ports: 4070 LiveKit, 4071 media, 4072 web.
 
+### A voice
+
+Any LiveKit text-to-speech plugin works. For example, OpenAI's:
+
+    (cd agent && uv sync --extra openai)
+
+and in `agent/.env.local`:
+
+    OPENAI_API_KEY=...
+    CH_TTS=livekit.plugins.openai:TTS
+    CH_TTS_OPTIONS={"model": "gpt-4o-mini-tts", "voice": "ash"}
+
+For another plugin, install it (`cd agent && uv add livekit-plugins-<name>`) and name
+its class the same way. On a Mac, `CH_TTS=mac` uses the built-in `say` command, free,
+for trying things out.
+
+### With Docker
+
+    cp agent/.env.example agent/.env.local
+    cp web/.env.example web/.env.local
+    docker compose up --build
+
+starts LiveKit, the lecturer and the web app (with the OpenAI voice plugin installed)
+on the same ports, sharing `lessons/`, `generated/` and `logs/` with this folder. The
+lecturer's image has no Chrome, so a lesson's shared-screen steps are skipped.
+
 ## Writing a lesson
 
 A lesson is a few text files in `lessons/<course>/`: a script of say, write and show
@@ -121,9 +147,23 @@ script format is at the top of `agent/src/lecturer/script/steps.py`. To check on
 
 ## Running it on a server
 
+It runs on one server, as the lecturer and the web app share folders on disk
+(`lessons/` and `generated/`), and the web app keeps its join limits in memory, so
+run one web process. The web app on a serverless host, or the lecturer on LiveKit
+Cloud's agent hosting, are not supported yet.
+
+- Run the web app built (`cd web && pnpm build && pnpm start --port 4072`), and the
+  lecturer with `start`, not `dev` (`cd agent && uv run python -m lecturer.agent
+  start`), or use `docker-compose.yml`. Use your own LiveKit server or LiveKit Cloud
+  for the rooms: set `LIVEKIT_URL`, `LIVEKIT_API_KEY` and `LIVEKIT_API_SECRET` for
+  both, and `LIVEKIT_PUBLIC_URL` for the web app if browsers reach LiveKit at another
+  address. With Docker, set `node_ip` in `dev/livekit.docker.yaml` to the server's
+  public address.
 - Leave `CH_OPEN_ROOMS` out. Then a class can be joined only if `lessons/schedule.json`
   lists it, and only around its time, at `/class/<its id>`. Nothing lists the
-  classes: give each class's link to the people who should come.
+  classes: give each class's link to the people who should come. Each class can be
+  taught live or read from its script (`"live": true` in the schedule).
+- Set `NEXT_PUBLIC_SITE_NAME` to what your classes are called.
 - Set long random codes for helpers and guest lecturers (`CH_HELPER_CODE`,
   `CH_GUEST_CODE` in `web/.env.local`), and `CH_PROXY_HOPS` if the web app is behind a
   proxy.
@@ -152,6 +192,7 @@ script format is at the top of `agent/src/lecturer/script/steps.py`. To check on
 - `lessons/`: lessons and the schedule; only the example is in this repo.
 - `dev/`: the local stack, real-room checks with their test lessons (`checks/`), and
   the optional evaluation tools (`eval/`).
+- `docker-compose.yml`, `agent/Dockerfile`, `web/Dockerfile`: the same, in Docker.
 
 ## Checks
 
@@ -168,7 +209,7 @@ checks in a real room:
     PYTHONPATH=../dev/checks uv run python ../dev/checks/media_check.py
     PYTHONPATH=../dev/checks uv run python ../dev/checks/hearing_check.py speech.wav
 
-The last needs `CH_HEARING` and a recording of someone speaking.
+The last needs `CH_HEARING`, `CH_WRITER` and a recording of someone speaking.
 
 ## Known gaps
 
@@ -176,6 +217,7 @@ The last needs `CH_HEARING` and a recording of someone speaking.
   its own: anyone with its link can join.
 - Model call limits are for each lecturer, so a class that splits into groups can
   make more calls, and the groups' overseer is not counted.
+- One server only: no serverless hosting or LiveKit Cloud agents yet (see above).
 - Moderation is not built.
 
 ## Licence

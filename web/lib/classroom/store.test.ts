@@ -184,6 +184,7 @@ describe('the schedule', () => {
     const session = {
       id: 's',
       kind: 'class' as const,
+      live: false,
       title: 't',
       about: '',
       lesson: 'c/l',

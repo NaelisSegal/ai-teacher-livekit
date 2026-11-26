@@ -1,4 +1,4 @@
-# Local LiveKit dev server for Curiosity Hall.
+# Local LiveKit dev server for the AI teacher.
 # Ports: 4070 signalling, 4071 media (TCP and UDP). The web app is on 4072.
 # The key below is the well-known dev key. Never use it on a real server.
 port: 4070

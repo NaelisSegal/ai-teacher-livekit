@@ -18,7 +18,10 @@ development (`CH_OPEN_ROOMS=1`) any room name works, and the lesson is chosen by
 link; the development front page lists every lesson. An example `schedule.json`:
 
     {"sessions": [{"id": "cone-tuesday", "lesson": "example/cone", "title": "Why a cone is a third",
-                   "starts": "2026-12-01T19:00:00+11:00", "minutes": 15}]}
+                   "starts": "2026-12-01T19:00:00+11:00", "minutes": 15, "live": true}]}
+
+`live: true` has the class taught live (it needs a writer model); left out, it is read
+from its script. `kind: "office-hours"` keeps the room open to the end of its time.
 
 To check a lesson (that its script and slides read, how long it takes, that the files
 it uses are there, and whether it can be taught live):

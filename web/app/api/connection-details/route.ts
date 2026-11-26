@@ -20,6 +20,9 @@ import { createHmac } from 'node:crypto';
 const API_KEY = process.env.LIVEKIT_API_KEY;
 const API_SECRET = process.env.LIVEKIT_API_SECRET;
 const LIVEKIT_URL = process.env.LIVEKIT_URL;
+// Where browsers reach LiveKit, if not where this server does (in Docker, say, this
+// server uses the container's name and browsers use the host's address).
+const PUBLIC_URL = process.env.LIVEKIT_PUBLIC_URL || LIVEKIT_URL;
 
 const LECTURER = 'lecturer';
 const COOKIE_KEY = 'ch-participant-postfix';
@@ -92,6 +95,7 @@ export async function POST(request: NextRequest) {
       }
       if (state === 'over') return say('This session is over.', 403);
       lecturer.lesson = session.lesson;
+      if (session.live) lecturer.live = true;
       if (session.kind === 'office-hours') {
         // Office hours have no script to get through: the room stays open to the end.
         const end = session.starts + session.minutes * 60_000;
@@ -176,7 +180,7 @@ export async function POST(request: NextRequest) {
     token.addGrant(grant);
 
     const data: ConnectionDetails = {
-      serverUrl: LIVEKIT_URL,
+      serverUrl: PUBLIC_URL!,
       roomName,
       participantName,
       participantToken: await token.toJwt(),

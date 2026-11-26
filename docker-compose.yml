@@ -1,0 +1,50 @@
+# LiveKit, the lecturer and the class page, on one machine:
+#   cp agent/.env.example agent/.env.local && cp web/.env.example web/.env.local
+#   docker compose up --build
+# then open http://localhost:4072. lessons/, generated/ and logs/ are shared with the
+# containers. For a real server, see "Running it on a server" in the README.
+services:
+  livekit:
+    image: livekit/livekit-server:v1.13.7
+    command: --config /etc/livekit.yaml
+    volumes:
+      - ./dev/livekit.docker.yaml:/etc/livekit.yaml:ro
+    ports:
+      - "4070:4070"
+      - "4071:4071/tcp"
+      - "4071:4071/udp"
+
+  agent:
+    build:
+      context: .
+      dockerfile: agent/Dockerfile
+    env_file: agent/.env.local
+    # In LiveKit's own network, so that the address LiveKit gives out for media
+    # (127.0.0.1, its node_ip) reaches it from the lecturer as well as from browsers.
+    network_mode: service:livekit
+    environment:
+      LIVEKIT_URL: ws://127.0.0.1:4070
+    volumes:
+      - ./lessons:/app/lessons
+      - ./generated:/app/generated
+      - ./logs:/app/logs
+    depends_on:
+      - livekit
+
+  web:
+    build:
+      context: .
+      dockerfile: web/Dockerfile
+      args:
+        NEXT_PUBLIC_SITE_NAME: ${NEXT_PUBLIC_SITE_NAME:-}
+    env_file: web/.env.local
+    environment:
+      LIVEKIT_URL: ws://livekit:4070
+      LIVEKIT_PUBLIC_URL: ${LIVEKIT_PUBLIC_URL:-ws://localhost:4070}
+    volumes:
+      - ./lessons:/app/lessons:ro
+      - ./generated:/app/generated:ro
+    ports:
+      - "4072:4072"
+    depends_on:
+      - livekit
