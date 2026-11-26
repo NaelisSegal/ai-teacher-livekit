@@ -7,8 +7,8 @@ work, answers what they type or say, and changes the lesson to fit the people wh
 are there.
 
 Built for [Curiosity Hall](https://curiosityhall.com), a non-commercial learning
-community taught by AI teachers, coming soon. Anyone is welcome to use it for their
-own classes.
+community taught by AI teachers, coming soon. Anyone is welcome to use it: for
+classes, tutoring, or anything else it suits.
 
 This is an early open-source project, and it will change a lot.
 
